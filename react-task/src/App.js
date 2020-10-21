@@ -19,27 +19,37 @@ const App = () => {
   }
 
   const handleAdd = () => {
+    // check to see if we have an input value
     if (inputValue !== '') {
-    const newEntry = [...data, { 
+    // spread current data and add new item object
+    const newData = [...data, { 
       text: inputValue,
       complete: false
     }];
-
-    setData(newEntry);
+    setData(newData);
+    // revert input value to empty
     setInputValue('');
     }
   }
 
+  const handleEdit = (index, value) => {
+    const newData = [...data];
+    // getting new value from child and updating data
+    newData[index].text = value
+    setData(newData);
+  }
+
   const handleDelete = (index) => {
-    const newEntry = [...data];
-    newEntry.splice(index, 1);
-    setData(newEntry);
+    const newData = [...data];
+    newData.splice(index, 1);
+    setData(newData);
   }
 
   const handleComplete = (event, index) => {
-    const newEntry = [...data];
-    newEntry[index].complete = event.target.checked;
-    setData(newEntry);
+    const newData = [...data];
+    // getting completed boolean value from child and updates data
+    newData[index].complete = event.target.checked;
+    setData(newData);
   }
 
   return (
@@ -58,6 +68,7 @@ const App = () => {
             key={index}
             handleDelete={handleDelete}
             handleComplete={handleComplete}
+            handleEdit={handleEdit}
         />
 
       ))}
