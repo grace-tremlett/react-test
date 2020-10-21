@@ -1,15 +1,88 @@
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
 .to-do {
   background-color: #2e89dd;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  // justify-content: center;
   color: white;
-  text-align: center;
-}
+  // text-align: center;
 
-.completed {
-  text-decoration: line-through;
+    &__header {
+      font-size: 40px;
+      font-weight: bold;
+      margin: 40px;
+    }
+
+    &__main-input {
+      border: none;
+      background-color: #fff;
+      height: 40px;
+      padding: 10px;
+      &:focus {
+        outline: none;
+      }
+    }
+
+    &__btn {
+      color: #000;
+      background-color: #fff;
+      height: 40px;
+      padding: 10px;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+      margin-right: 4px;
+      &:focus {
+        outline: none;
+      }
+      &--save {
+        margin: 20px
+      }
+    }
+
+    &__entry {
+      display: flex;
+      justify-content: space-evenly;
+      width: 80%;
+      border-bottom: 1px solid #fff;
+      padding: 20px;
+      align-items: center;
+    }
+
+    &__text {
+      width: 100%;
+      &--completed {
+        text-decoration: line-through;
+      }
+    }
+
+    &__actions {
+      width: 180px;
+    }
+
+    &__checkbox {
+      padding: 10px;
+    }
+
+    &__validation {
+      background-color: #ffe8e8;
+      color: #ff0000;
+      border: 1px solid #ff0000;
+      text-align: center;
+      padding: 10px;
+      margin: 20px;
+      font-size: 15px;
+    }
 }

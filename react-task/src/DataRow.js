@@ -27,18 +27,26 @@ const DataRow = ({ entry, index, handleEdit, handleDelete, handleComplete }) => 
   }
 
   return (
-    <div className="entry">
+    <div className="to-do__entry">
       {isEdit ? 
       <>
-        <input className={entry.complete ? 'completed' : ''} onChange={handleOnChange} />
-        <button onClick={handleSave}>Save</button>
-        <button onClick={handleCancel}>Cancel</button>
+        <div className="to-do__text">
+          <input className={entry.complete ? 'completed' : ''} onChange={handleOnChange} />
+        </div>
+        <div className="to-do__actions">
+          <button className="to-do__btn" onClick={handleSave}>Save</button>
+          <button className="to-do__btn" onClick={handleCancel}>Cancel</button>
+        </div>
       </> :
       <>
-        <p className={entry.complete ? 'completed' : ''}>{rowText}</p>
-        <button onClick={handleOnClickEdit}>Edit</button>
-        <button onClick={() => handleDelete(index)}>Remove</button>
-        <input type="checkbox" onChange={(event) => handleComplete(event, index)} />
+        <div className="to-do__text">
+          <p className={entry.complete ? 'to-do__text to-do__text--completed' : 'to-do__text'}>{rowText}</p>
+        </div>
+        <div className="to-do__actions">
+          <button className="to-do__btn" onClick={handleOnClickEdit}>Edit</button>
+          <button className="to-do__btn" onClick={() => handleDelete(index)}>Remove</button>
+          <input className="to-do__checkbox" type="checkbox" onChange={(event) => handleComplete(event, index)} />
+        </div>
       </>
       }
     </div>
