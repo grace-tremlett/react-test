@@ -69,12 +69,60 @@ html {
     }
 
     &__actions {
-      width: 180px;
+      width: 245px;
+    }
+
+    &__checkbox-wrapper {
+      vertical-align: middle;
+      display: inline-block;
     }
 
     &__checkbox {
-      padding: 10px;
+      position: absolute; // take it out of document flow
+      opacity: 0; // hide it
+
+      & + label {
+        position: relative;
+        cursor: pointer;
+        padding: 0;
+      }
+
+      // Box.
+      & + label:before {
+        content: '';
+        margin-right: 10px;
+        display: inline-block;
+        vertical-align: text-top;
+        width: 40px;
+        height: 40px;
+        border: 2px solid #fff;
+      }
+
+      // Box checked
+      &:checked + label:before {
+        background: #fff;
+      }
+
+      // Checkmark. Could be replaced with an image
+      &:checked + label:after {
+        content: '';
+        position: absolute;
+        left: 10px;
+        top: 16px;
+        background: #2e89dd;
+        width: 5px;
+        height: 5px;
+        box-shadow: 4px 0 0 #2e89dd, 8px 0 0 #2e89dd, 8px -4px 0 #2e89dd, 8px -8px 0 #2e89dd, 8px -12px 0 #2e89dd, 8px -16px 0 #2e89dd;
+        transform: rotate(45deg);
+      }
     }
+
+    // &__complete-label {
+    //   display: block;
+    //   height: 40px;
+    //   width: 40px;
+    //   background: #fff;
+    // }
 
     &__validation {
       background-color: #ffe8e8;

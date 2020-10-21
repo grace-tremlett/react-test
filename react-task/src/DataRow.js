@@ -45,7 +45,11 @@ const DataRow = ({ entry, index, handleEdit, handleDelete, handleComplete }) => 
         <div className="to-do__actions">
           <button className="to-do__btn" onClick={handleOnClickEdit}>Edit</button>
           <button className="to-do__btn" onClick={() => handleDelete(index)}>Remove</button>
-          <input className="to-do__checkbox" type="checkbox" onChange={(event) => handleComplete(event, index)} />
+          <div className="to-do__checkbox-wrapper">
+            <input id="toggle" className="to-do__checkbox" type="checkbox" onChange={(event) => handleComplete(event, index)} />
+            <label className="to-do__complete-label" for="toggle"></label>
+          </div>
+          
         </div>
       </>
       }

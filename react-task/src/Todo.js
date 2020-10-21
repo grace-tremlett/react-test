@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import DataRow from './DataRow'
-import './App.scss';
+import './Todo.scss';
 
-const App = () => {
+const Todo = () => {
   const [data, setData] = useState([]);
   const [inputValue, setInputValue] = useState('');
   const [validation, setValidation] = useState({
@@ -97,4 +97,4 @@ const App = () => {
   );
 }
 
-export default App;
+export default Todo;
