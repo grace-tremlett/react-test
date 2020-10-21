@@ -1,10 +1,11 @@
 import React from 'react';
 
-const DataRow = ({ entry }) => {
-  console.log(entry)
+const DataRow = ({ entry, index, handleDelete, handleComplete }) => {
   return (
     <div className="entry">
-      <p>{entry.text}</p>
+      <p className={entry.complete ? 'completed' : ''}>{entry.text}</p>
+      <button onClick={() => handleDelete(index)}>Remove</button>
+      <input type="checkbox" onChange={(event) => handleComplete(event, index)} />
     </div>
     );
 }
